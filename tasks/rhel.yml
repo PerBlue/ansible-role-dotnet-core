@@ -3,10 +3,6 @@
   rpm_key:
     key: https://packages.microsoft.com/keys/microsoft.asc
     state: present
-  register: result
-  until: '"failed" not in result'
-  retries: 3
-  delay: 5
 
 - name: .NET | Add YUM repository
   yum_repository:
@@ -32,8 +28,4 @@
     name: "{{ dotnet_rhel_package }}"
     state: present
     update_cache: true
-  register: result
-  until: '"failed" not in result'
-  retries: 3
-  delay: 5
 
